@@ -20,6 +20,7 @@ function LeadsList() {
   const leads = leadList.map((lead) => ({
     ...lead,
     data: lead.data.map((data) => <div>{data}</div>),
+    tiers: lead.tiers === 0 ? "Enterprise" : lead.tiers,
   }));
 
   const pagination = paginationFactory({
