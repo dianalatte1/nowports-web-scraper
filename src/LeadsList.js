@@ -16,6 +16,12 @@ function LeadsList() {
     { dataField: "teus", text: "Teus", sort: true },
   ];
 
+  console.log(leadList);
+  const leads = leadList.map((lead) => ({
+    ...lead,
+    data: lead.data.map((data) => <div>{data}</div>),
+  }));
+
   const pagination = paginationFactory({
     page: 1,
     sizePerPage: 5,
@@ -40,7 +46,7 @@ function LeadsList() {
         bootstrap4
         keyField="name"
         columns={columns}
-        data={leadList}
+        data={leads}
         pagination={pagination}
       />
     </div>
