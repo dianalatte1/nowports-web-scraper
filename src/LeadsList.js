@@ -10,7 +10,7 @@ function LeadsList() {
 
   const columns = [
     { dataField: "name", text: "Razón Social" },
-    // { dataField: "logo", text: "Logo" },
+    { dataField: "logo", text: "" },
     { dataField: "data", text: "Información de contacto" },
     { dataField: "tiers", text: "Tiers", sort: true },
     { dataField: "teus", text: "Teus", sort: true },
@@ -21,6 +21,7 @@ function LeadsList() {
     ...lead,
     data: lead.data.map((data) => <div>{data}</div>),
     tiers: lead.tiers === 0 ? "Enterprise" : lead.tiers,
+    logo: <img src={lead.logo} alt="logo" />,
   }));
 
   const pagination = paginationFactory({
